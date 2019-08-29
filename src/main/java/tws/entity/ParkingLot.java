@@ -1,69 +1,52 @@
 package tws.entity;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class  ParkingLot {
-	private final int capacity;
-	private Map<ParkingTicket, Car> cars = new HashMap<>();
+	private String  parkingLotID;
+	private int availablePositionCount;
+	private int capacity;  //(0-100)
+	private int parkingBoyID;
 
-	public Map<ParkingTicket, Car> getCars() {
-		return cars;
+	public ParkingLot() {
+	}
+
+	public ParkingLot(String parkingLotID, int availablePositionCount, int capacity, int parkingBoyID) {
+		this.parkingLotID = parkingLotID;
+		this.availablePositionCount = availablePositionCount;
+		this.capacity = capacity;
+		this.parkingBoyID = parkingBoyID;
+	}
+
+	public int getParkingBoyID() {
+		return parkingBoyID;
+	}
+
+	public void setParkingBoyID(int parkingBoyID) {
+		this.parkingBoyID = parkingBoyID;
+	}
+
+	public String getParkingLotID() {
+		return parkingLotID;
+	}
+
+	public void setParkingLotID(String parkingLotID) {
+		this.parkingLotID = parkingLotID;
+	}
+
+	public int getAvailablePositionCount() {
+		return availablePositionCount;
+	}
+
+	public void setAvailablePositionCount(int availablePositionCount) {
+		this.availablePositionCount = availablePositionCount;
 	}
 
 	public int getCapacity() {
 		return capacity;
 	}
 
-	public void setCars(Map<ParkingTicket, Car> cars) {
-		this.cars = cars;
-	}
-
-	public ParkingLot() {
-		this(10);
-	}
-
-	public ParkingLot(int capacity) {
+	public void setCapacity(int capacity) {
 		this.capacity = capacity;
-	}
-
-	public int getAvailableParkingPosition() {
-		return capacity - cars.size();
-	}
-	
-	public double getAvaliableParkingLot() {
-		return this.getAvailableParkingPosition()/this.capacity;
-	}
-
-	public ParkingTicket park(Car car) {
-		if(this.getAvailableParkingPosition()==0) {
-			return null;
-		}
-		ParkingTicket ticket = new ParkingTicket();
-		cars.put(ticket, car);
-		return ticket;
-	}
-
-	public Car fetchCar(ParkingTicket ticket) {
-//		for (Map.Entry<ParkingTicket, Car> entry : cars.entrySet()) {
-//			if (entry.getKey() == ticket) {
-//				return entry.getValue();
-//			}
-//		}
-		Car car = cars.get(ticket);
-		if(car == null) {
-			return null;
-		}
-		cars.remove(ticket);
-		return car;
-	}
-	
-	@Override
-	public boolean equals(Object object){  
-		if(this.getClass()==object.getClass()) {
-			return true;
-		}
-		return false;
-		
 	}
 }
