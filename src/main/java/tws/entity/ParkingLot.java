@@ -3,7 +3,7 @@ package tws.entity;
 
 
 public class  ParkingLot {
-	private String  parkingLotID;
+	private int  parkingLotID;
 	private int availablePositionCount;
 	private int capacity;  //(0-100)
 	private int parkingBoyID;
@@ -11,7 +11,7 @@ public class  ParkingLot {
 	public ParkingLot() {
 	}
 
-	public ParkingLot(String parkingLotID, int availablePositionCount, int capacity, int parkingBoyID) {
+	public ParkingLot(int parkingLotID, int availablePositionCount, int capacity, int parkingBoyID) {
 		this.parkingLotID = parkingLotID;
 		this.availablePositionCount = availablePositionCount;
 		this.capacity = capacity;
@@ -26,11 +26,11 @@ public class  ParkingLot {
 		this.parkingBoyID = parkingBoyID;
 	}
 
-	public String getParkingLotID() {
+	public int getParkingLotID() {
 		return parkingLotID;
 	}
 
-	public void setParkingLotID(String parkingLotID) {
+	public void setParkingLotID(int parkingLotID) {
 		this.parkingLotID = parkingLotID;
 	}
 
