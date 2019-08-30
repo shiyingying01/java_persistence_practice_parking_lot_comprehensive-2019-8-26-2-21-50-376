@@ -11,8 +11,8 @@ import java.util.List;
 
 @Mapper
 public interface EmployeeMapper {
-//	@Select("SELECT * FROM employee " + "ORDER BY id " + "OFFSET #{page} ROWS FETCH NEXT #{pageSize} ROWS ONLY;")
-//	List<Employee> selectByPage(@Param("page") int page, @Param("page") int pageSize);
+	@Select("SELECT * FROM employee " + "ORDER BY id " + "OFFSET #{page} ROWS FETCH NEXT #{pageSize} ROWS ONLY;")
+	List<Employee> selectByPage(@Param("page") int page, @Param("pageSize") int pageSize);
 
 	@Select("SELECT * FROM employee ")
 	List<Employee> selectAll();

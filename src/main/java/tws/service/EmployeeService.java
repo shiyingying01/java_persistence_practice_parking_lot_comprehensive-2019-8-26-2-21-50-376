@@ -5,6 +5,7 @@ import tws.repository.EmployeeMapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,11 @@ public class EmployeeService {
 
 	public void insert(Employee employee) {
 		employeeMapper.insert(employee);
+
+	}
+
+	public List<Employee> selectByPage(int page, int pageSize) {
+		return employeeMapper.selectByPage(page, pageSize);
 
 	}
 
