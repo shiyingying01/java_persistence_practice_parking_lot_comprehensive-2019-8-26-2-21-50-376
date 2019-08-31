@@ -31,7 +31,9 @@ public class EmployeeController {
 
 	@PostMapping("")
 	public ResponseEntity<Employee> insert(@RequestBody Employee employee) {
-		employeeService.insert(employee);
-		return ResponseEntity.created(URI.create("/employees/" + employee.getId())).body(employee);
+		if(employeeService.insert(employee)) {
+			return ResponseEntity.ok(employee);		
+		}
+		return ResponseEntity.badRequest().body(null);
 	}
 }

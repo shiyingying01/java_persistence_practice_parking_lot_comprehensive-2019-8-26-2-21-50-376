@@ -13,7 +13,6 @@ CREATE TABLE `parkingLot` (
 );
 
 insert into employee values(0,'eason',666);
-insert into employee values(1,'cat',17);
 insert into employee values(2,'dog',1);
 
 insert into parkingLot values(0,13,10,0);

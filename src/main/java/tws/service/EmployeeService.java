@@ -5,7 +5,6 @@ import tws.repository.EmployeeMapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +21,15 @@ public class EmployeeService {
 		return employees;
 	}
 
-	public void insert(Employee employee) {
-		employeeMapper.insert(employee);
+	public boolean insert(Employee employee) {
+		Employee employee1 = employeeMapper.selectById(employee.getId());
+		if(employee1 == null) {
+			employeeMapper.insert(employee);
+			return true;
+		}else {
+			return false;
+		}
+		
 
 	}
 

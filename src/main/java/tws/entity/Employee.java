@@ -3,7 +3,7 @@ package tws.entity;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    private int id;
+    private Integer id;
     private String name;
     private int age;
 
@@ -11,17 +11,17 @@ public class Employee implements Serializable {
 
     }
 
-    public Employee(int id, String name, int age) {
+    public Employee(Integer id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

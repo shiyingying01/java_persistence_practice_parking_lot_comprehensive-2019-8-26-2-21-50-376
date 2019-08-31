@@ -19,4 +19,7 @@ public interface EmployeeMapper {
 
 	@Insert("insert into employee values(#{employee.id},#{employee.name}," + "#{employee.age}) ")
 	void insert(@Param("employee") Employee employee);
+
+	@Select("SELECT * FROM employee where id=#{id}")
+	Employee selectById(@Param("id") Integer id);
 }
