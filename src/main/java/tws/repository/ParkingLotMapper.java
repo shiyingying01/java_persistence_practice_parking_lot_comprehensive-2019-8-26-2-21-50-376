@@ -16,7 +16,10 @@ public interface ParkingLotMapper {
             "#{parkingLot.capacity},#{parkingLot.parkingBoyID})")
     void insert(@Param("parkingLot") ParkingLot parkingLot);
 
-    @Select("select * from parking_lot where parkingBoyID = #{parkingBoyId}")
+    @Select("select * from parkingLot where parkingBoyID = #{parkingBoyId}")
     List<ParkingLot> selectByParkingBoyId(@Param("parkingBoyId")int parkingBoyId);
+
+    @Select("SELECT * FROM parkingLot where ParkingLotID=#{parkingLotID}")
+	ParkingLot selectByParkingLotId(@Param("parkingLotID")int parkingLotID);
 
 }

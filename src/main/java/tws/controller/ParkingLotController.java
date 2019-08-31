@@ -22,7 +22,9 @@ public class ParkingLotController {
 
 	@PostMapping
 	public ResponseEntity<ParkingLot> insert(@RequestBody ParkingLot parkingLot) {
-		parkingLotService.insert(parkingLot);
-		return ResponseEntity.created(URI.create("/parkingLots/" + parkingLot.getParkingLotID())).body(parkingLot);
+		if(parkingLotService.insert(parkingLot)) {
+			return ResponseEntity.ok(parkingLot);		
+		}
+		return ResponseEntity.badRequest().body(null);
 	}
-}
+	}

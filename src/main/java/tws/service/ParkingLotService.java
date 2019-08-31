@@ -1,5 +1,7 @@
 package tws.service;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,14 @@ public class ParkingLotService {
 	private ParkingLotMapper parkingLotMapper;
 	
 	
-    public void insert(ParkingLot parkingLot) {
-    	parkingLotMapper.insert(parkingLot);
+    public boolean insert(ParkingLot parkingLot) {
+    	ParkingLot parkingLot1 = parkingLotMapper.selectByParkingLotId(parkingLot.getParkingLotID());
+		if(parkingLot1 == null) {
+			parkingLotMapper.insert(parkingLot);
+			return true;
+		}else {
+			return false;
+		}
 	}
     
     public List<ParkingLot> selectByParkingBoyId(int id) {
