@@ -41,6 +41,23 @@ public class EmployeeMapperTest {
         // when
         List<Employee> employeeList = employeeMapper.selectAll();
         // then
-        assertEquals(3, employeeList.size());
+        assertEquals(1, employeeList.size());
+    }
+    
+    @Test
+    public void should_fatch_part_employees_when_findAllEmloyeesByPage_given_page_and_size(){
+     //given
+        jdbcTemplate.execute("INSERT INTO EMPLOYEE VALUES(1,'zhangsan', 21);");
+        int page = 1;
+        int pageSize = 1;
+        int skipCounts = page * (pageSize-1);
+     //when
+        List<Employee> employees = employeeMapper.selectByPage(skipCounts,pageSize);
+     //then
+        //assertEquals(1, employees.get(0).getId());
+       // assertEquals(1, employees.get(0).getId());
+        assertEquals(1, employees.get(0).getId().intValue());
+        assertEquals("zhangsan", employees.get(0).getName());
+        assertEquals(21, employees.get(0).getAge());
     }
 }

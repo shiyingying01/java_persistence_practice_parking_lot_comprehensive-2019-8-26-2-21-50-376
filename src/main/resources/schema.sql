@@ -12,8 +12,7 @@ CREATE TABLE `parkingLot` (
 `parkingBoyID` int(3) NULL,
 );
 
-insert into employee values(0,'eason',666);
-insert into employee values(2,'dog',1);
+
 
 insert into parkingLot values(0,13,10,0);
 insert into parkingLot values(1,10,10,2);
