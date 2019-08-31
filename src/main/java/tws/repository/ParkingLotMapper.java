@@ -22,4 +22,7 @@ public interface ParkingLotMapper {
     @Select("SELECT * FROM parkingLot where ParkingLotID=#{parkingLotID}")
 	ParkingLot selectByParkingLotId(@Param("parkingLotID")int parkingLotID);
 
+    @Select("SELECT * FROM parkingLot " + "ORDER BY parkingLotID " + "OFFSET #{page} ROWS FETCH NEXT #{pageSize} ROWS ONLY;")
+	List<ParkingLot> selectByPage(@Param("page") int page, @Param("pageSize") int pageSize);
+
 }

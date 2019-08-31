@@ -33,4 +33,9 @@ public class ParkingLotService {
 	public List<ParkingLot>  selectAll() {
 		return parkingLotMapper.selectAll();
 	}
+	
+
+	public List<ParkingLot> selectByPage(Integer page, Integer pageSize) {
+		return parkingLotMapper.selectByPage(page, pageSize);
+	}
 }
